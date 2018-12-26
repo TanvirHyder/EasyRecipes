@@ -15,19 +15,25 @@ export default class MainMenu extends React.Component {
 
    render() {
 
+     // Ingredients variable declared: like an "array of components"
+     // Just contains Ingredient Components
        let Ingredients = this.state.ingredientArray.map( (val,key) => {
            return <Ingredient key={key} keyval={key} val={val}
            deleteMethod = { () => this.deleteIngredient(key)} />
        });
 
        return (
+          // One line add for KeyboardAvoidingView
            <KeyboardAvoidingView style = {styles.wrapper} behavior = "padding" enabled>
+           {/* Main View Container */}
                <View style={ styles.mainContainer }>
 
+                  {/* Title Container */}
                    <View style={styles.titleContainer}>
                        <Text style={styles.title}>EasyRecipe</Text>
                    </View>
 
+                   {/* Double enclosed box for ScrollView for style */}
                    <View style = { styles.mainBox }>
                        <View style={styles.box}>
                            <ScrollView style = {styles.listContainer}>
@@ -36,6 +42,7 @@ export default class MainMenu extends React.Component {
                        </View>
                    </View>
 
+                   {/* Input Text Box*/}
                    <View style = {{paddingVertical: 7,}}>
                        <View style = {styles.inputContainer}>
                            <TextInput
@@ -47,10 +54,13 @@ export default class MainMenu extends React.Component {
                            underlineColorAndroid = 'transparent'>
                            </TextInput>
 
+                          {/* For the button to add - links addIngredient to press*/}
                            <View style = {{ position: 'relative', bottom: 52.5, left: 215}}>
                                <TouchableOpacity
+                                // bind is how you link methods to buttons
                                    onPress = { this.addIngredient.bind(this) }
                                    style = { styles.addButton }>
+                                   { /*"Entypo" & others calls the image icons from Expo lib*/}
                                    <Entypo name="add-to-list" size={25} color="white" />
                                </TouchableOpacity>
                            </View>
@@ -58,12 +68,14 @@ export default class MainMenu extends React.Component {
                    </View>
 
                    <View style = { styles.searchdeleteContainer }>
+                      {/* Search button*/}
                        <TouchableOpacity
                            onPress = { this.addIngredient.bind(this) }
                            style = { styles.searchButton }>
                            <AntDesign name="search1" size={25} color="white" />
                        </TouchableOpacity>
 
+                       {/* Clear list button*/}
                        <TouchableOpacity
                            onPress = { this.clearList.bind(this) }
                            style = { styles.clearButton }>
@@ -80,7 +92,6 @@ export default class MainMenu extends React.Component {
        if (this.state.ingredientText) {
 
            this.state.ingredientArray.push({
-               'ingredient' : this.state.ingredientText,
                'ingredient' : this.state.ingredientText
            });
            this.setState({ ingredientArray: this.state.ingredientArray });
@@ -118,7 +129,7 @@ const styles = StyleSheet.create({
        height: 180,
    },
 
-   title: {
+   title: { // For Text
        fontWeight: 'bold',
        color: 'black',
        fontSize: 50,
