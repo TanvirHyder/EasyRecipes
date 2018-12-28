@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
 
    listContainer: { // view for scroll view of ingredients
        flex: 1,
-       padding: 3,
    },
 
    inputContainer: { // view for textinput container
@@ -171,12 +170,12 @@ const styles = StyleSheet.create({
        width: 275,
        justifyContent: 'center',
        backgroundColor: '#E0E0E0',
-       borderRadius: 10,
+       borderRadius: 10, // Makes it round
        alignItems: 'center',
        height: '35%',
        alignSelf: 'center',
-       borderBottomWidth: 1,
-       borderBottomColor: '#E0E0E0',
+    //    borderBottomWidth: 1,
+    //    borderBottomColor: '#E0E0E0',
    },
 
    searchdeleteContainer: {

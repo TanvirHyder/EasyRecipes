@@ -12,9 +12,22 @@ export default class RecipeMenue extends React.Component {
     }
     
     render() {
-        // return(
-        //     <View style = 
-        // );
+        return(
+            <View style = {styles.mainContainer}>
+
+                <View style = {styles.titleContainer}>
+                    <Text style = {styles.titleText}>
+                        Choose a recipe!
+                    </Text>                    
+                </View>
+
+                <View style = {styles.recipesContainer}>
+                    <ScrollView style = {styles.listScroller}>
+                    {/* Insert Items here */}
+                    </ScrollView>
+                </View>
+            </View>
+        );
     }
 }
 
@@ -22,23 +35,33 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#fff',
+        flexDirection: 'column',
     },
 
     titleContainer: {
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyContent: 'flex-start',
         height: 180,
     },
 
     titleText: {
         fontWeight: 'bold',
         color: 'black',
-        fontSize: 50,
+        fontSize: 28,
         padding: 26,
     },
 
-    listContainer: { // View for scrolling through recipes
+    recipesContainer: {
+        width: 300,
+        justifyContent: 'center',
+        backgroundColor: '#FF6347',
+        borderRadius: 10,
+        alignItems: 'center',
+        height: '65%',
+        alignSelf: 'center',
+    },
+
+    listScroller: { // View for scrolling through recipes
         flex: 1,
-        padding: 3,
     },
 })
