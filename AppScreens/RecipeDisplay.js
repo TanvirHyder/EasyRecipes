@@ -2,29 +2,29 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { AntDesign, EvilIcons, Entypo } from '@expo/vector-icons';
 
-export default class RecipeMenu extends React.Component {
+export default class RecipeDisplay extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            // insert variables here
+            // insert state variables here
         }
     }
-    
+
     render() {
         return(
             <View style = {styles.mainContainer}>
-
+                
                 <View style = {styles.titleContainer}>
-                    <Text style = {styles.titleText}>
-                        Choose a recipe!
-                    </Text>                    
+                    <Text style = {styles.recipeTitleText}>
+                        {/* Insert title of recipe selected here */}
+                    </Text>
                 </View>
 
-                <View style = {styles.recipesContainer}>
-                    <ScrollView style = {styles.listScroller}>
-                    {/* Insert Items here */}
-                    </ScrollView>
+                <View style = {styles.instructionContainer}>
+                    <Text style = {styles.recipeInstructionText}>
+                        {/* Insert recipe instructions here */}
+                    </Text>
                 </View>
             </View>
         );
@@ -44,24 +44,25 @@ const styles = StyleSheet.create({
         height: 180,
     },
 
-    titleText: {
+    recipeTitleText: {
         fontWeight: 'bold',
         color: 'black',
         fontSize: 28,
         padding: 26,
     },
 
-    recipesContainer: {
-        width: 300,
+    instructionContainer: {
+        width:340,
         justifyContent: 'center',
-        backgroundColor: '#E0E0E0',
+        backgroundColor:'#E0E0E0',
         borderRadius: 10,
         alignItems: 'center',
-        height: '65%',
-        alignSelf: 'center',
     },
 
-    listScroller: { // View for scrolling through recipes
-        flex: 1,
+    recipeInstructionText: {
+        fontWeight: 'normal',
+        color: 'black',
+        fontSize: 26,
+        padding: 10,
     },
 })
