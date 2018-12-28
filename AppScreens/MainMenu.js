@@ -30,16 +30,14 @@ export default class MainMenu extends React.Component {
 
                   {/* Title Container */}
                    <View style={styles.titleContainer}>
-                       <Text style={styles.title}>EasyRecipe</Text>
+                       <Text style={styles.title}>EasyRecipes</Text>
                    </View>
 
                    {/* Double enclosed box for ScrollView for style */}
                    <View style = { styles.mainBox }>
-                       <View style={styles.box}>
-                           <ScrollView style = {styles.listContainer}>
-                               {Ingredients}
-                           </ScrollView>
-                       </View>
+                        <ScrollView style = {styles.listContainer}>
+                            {Ingredients}
+                        </ScrollView>
                    </View>
 
                    {/* Input Text Box*/}
@@ -167,17 +165,6 @@ const styles = StyleSheet.create({
        borderRadius: 50,
        alignItems: 'center',
        justifyContent: 'center',
-   },
-
-
-   box: {
-       top: 1,
-       width: 275,
-       height: '100%',
-       alignItems: 'center',
-       justifyContent: 'center',
-       backgroundColor: '#E0E0E0',
-       borderRadius: 10,
    },
 
    mainBox: {
