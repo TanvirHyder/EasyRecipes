@@ -1,59 +1,60 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default class Ingredient extends React.Component {
-   render() {
-       return (
-           <View
-           key = {this.props.keyval}
-           style = {styles.ingredient}>
+    render() {
+        return (
+            <View
+            key = {this.props.keyval}
+            style = {styles.ingredient}>
 
-               <Text style = {styles.ingredientText}>{this.props.val.ingredient}</Text>
+                <Text style = {styles.ingredientText}>{this.props.val.ingredient}</Text>
 
-               <TouchableOpacity
-               onPress = {this.props.deleteMethod}
-               style = {styles.deleteButton}>
-                   <MaterialCommunityIcons name="playlist-remove" size={20} color="white" />
-               </TouchableOpacity>
+                <TouchableOpacity
+                onPress = {this.props.deleteMethod}
+                style = {styles.deleteButton}>
+                    <FontAwesome name="remove" size={10} color="white" />
+                </TouchableOpacity>
 
-           </View>
-       );
-   }
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-   ingredient: {
-       position: 'relative',
-       padding: 20,
-       paddingRight: 100,
-       borderBottomWidth: 5,
-       borderBottomColor: '#E0E0E0',
-       backgroundColor: '#80DEEA',
-       borderRadius: 5,
-       width: 267,
-   },
+    ingredient: {
+        position: 'relative',
+        padding: 10,
+        paddingRight: 100,
+        borderBottomWidth: 5,
+        borderBottomColor: '#E0E0E0', //E0E0E0
+        backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
+        borderRadius: 5,
+        width: 267,
+        height: 40,
+    }, 
 
-   ingredientText: {
-       paddingLeft: 20,
-       borderLeftWidth: 10,
-       borderLeftColor: '#80DEEA',
-       backgroundColor: '#80DEEA',
-       color: 'black',
-       fontSize: 11,
-       fontWeight: 'bold',
-   },
+    ingredientText: {
+        paddingLeft: 15,
+        backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
+        color: 'black',
+        fontSize: 12,
+        fontWeight: 'bold',
+        width: 190,
+    },
 
-   deleteButton: {
-       width: 40,
-       height: 40,
-       position: 'absolute',
-       justifyContent: 'center',
-       alignItems: 'center',
-       backgroundColor: '#424242',
-       padding: 10,
-       top: 7.2,
-       right: 15,
-       borderRadius: 40,
-   },
+    deleteButton: {
+        width: 28,
+        height: 28,
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#424242',
+        padding: 10.3,
+        top: 3,
+        right: 15,
+        borderRadius: 28,
+    },
+
 })
