@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import { AntDesign, EvilIcons, Entypo } from '@expo/vector-icons';
 
 export default class RecipeMenu extends React.Component {
 

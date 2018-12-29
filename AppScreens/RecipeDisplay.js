@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import { AntDesign, EvilIcons, Entypo } from '@expo/vector-icons';
 
 export default class RecipeDisplay extends React.Component {
 
@@ -18,12 +17,14 @@ export default class RecipeDisplay extends React.Component {
                 <View style = {styles.titleContainer}>
                     <Text style = {styles.recipeTitleText}>
                         {/* Insert title of recipe selected here */}
+                        Place holder text
                     </Text>
                 </View>
 
                 <View style = {styles.instructionContainer}>
                     <Text style = {styles.recipeInstructionText}>
                         {/* Insert recipe instructions here */}
+                        Placeholder text.
                     </Text>
                 </View>
             </View>
@@ -34,7 +35,7 @@ export default class RecipeDisplay extends React.Component {
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffa',
         flexDirection: 'column',
     },
 
@@ -52,11 +53,13 @@ const styles = StyleSheet.create({
     },
 
     instructionContainer: {
-        width:340,
+        width:300,
         justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        height: '65%',
         backgroundColor:'#E0E0E0',
         borderRadius: 10,
-        alignItems: 'center',
     },
 
     recipeInstructionText: {
