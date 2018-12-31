@@ -27,8 +27,10 @@ const styles = StyleSheet.create({
         position: 'relative',
         padding: 10,
         paddingRight: 100,
-        borderBottomWidth: 5,
-        borderBottomColor: '#E0E0E0', //E0E0E0
+        marginBottom: 5,
+        marginTop: 5,
+        // borderBottomWidth: 5,
+        // borderBottomColor: '#E0E0E0', //E0E0E0
         backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
         borderRadius: 5,
         width: 267,

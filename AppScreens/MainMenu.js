@@ -25,15 +25,13 @@ export default class MainMenu extends React.Component {
                 <View style={ styles.mainContainer }>
 
                     <View style={styles.titleContainer}>
-                        <Text style={styles.title}>EasyRecipe</Text>
+                        <Text style={styles.title}>EasyRecipes</Text>
                     </View>
                     
-                    <View style = { styles.mainBox }>
-                        <View style={styles.box}>
+                    <View style = { styles.ingredientsBox }>
                             <ScrollView style = {styles.listContainer}>
                                 {Ingredients}
                             </ScrollView>
-                        </View>
                     </View>
 
                     <View style = {{paddingVertical: 7,}}>
@@ -132,7 +130,6 @@ const styles = StyleSheet.create({
 
     listContainer: { // view for scroll view of ingredients
         flex: 1,
-        padding: 3,
     },
 
     inputContainer: { // view for textinput container
@@ -146,7 +143,7 @@ const styles = StyleSheet.create({
 
     ingredientInput: { // for textinput
         alignSelf: 'stretch',
-        color: '#fff',
+        color: '#F4F4F0',
         padding: 20,
         backgroundColor: '#252525',
         borderRadius: 10,
@@ -163,17 +160,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    box: {
-        top: 1,
-        flex: 0.95,
-        width: 275,
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#E0E0E0', // E0E0E0
-        borderRadius: 10,
-    },
-
     mainBox: {
         width: 275,
         justifyContent: 'center',
@@ -182,8 +168,6 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         height: '35%',
         alignSelf: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: '#E0E0E0', // E0E0E0
     },
 
     searchdeleteContainer: {

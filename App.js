@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
 import MainMenu from './AppScreens/MainMenu';
-import SearchResults from './AppComponents/SearchResults';
+import RecipeMenu from './AppScreens/RecipeMenu';
 
 import { createAppContainer, createStackNavigator } from "react-navigation";
 
@@ -23,10 +23,10 @@ const SerachNavigator = createStackNavigator({
   },
 
   SearchResults: { 
-    screen: SearchResults,
+    screen: RecipeMenu,
     navigationOptions: ({ navigation }) => ({
-      title: 'Search Results',
-      headerStyle: styles.styleHeader ,
+      title: 'RecipeMenu',
+      headerStyle: styles.styleHeader,
     }),
   },
 
@@ -34,7 +34,7 @@ const SerachNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(SerachNavigator);
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.cresate({
   styleHeader: {
     backgroundColor: '#E0E0E0',
   }
