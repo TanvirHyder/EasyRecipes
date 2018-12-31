@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
-import MainMenu from './AppComponents/MainMenu';
+import MainMenu from './AppScreens/MainMenu';
 import SearchResults from './AppComponents/SearchResults';
 
 import { createAppContainer, createStackNavigator } from "react-navigation";
