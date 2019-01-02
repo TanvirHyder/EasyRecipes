@@ -14,7 +14,7 @@ export default class App extends React.Component {
 }
 
 const SerachNavigator = createStackNavigator({
-
+// First screen in stack navigator is the entry point
   EasyRecipe: { 
     screen: MainMenu,
     navigationOptions: ({ navigation }) => ({
