@@ -86,7 +86,8 @@ export default class MainMenu extends React.Component {
     }
 
     deleteIngredient(index) {
-        this.setState({ ingredientArray: this.state.ingredientArray.splice(index, 1) })
+        this.state.ingredientArray.splice(index, 1)
+        this.setState({ ingredientArray: this.state.ingredientArray })
     }
 
     clearList(){

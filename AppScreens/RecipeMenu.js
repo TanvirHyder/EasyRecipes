@@ -2,13 +2,13 @@ import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import RecipeItem from '../AppComponents/RecipeItem';
 
-export default class RecipeMenue extends React.Component {
+export default class RecipeMenu extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             isLoading: true, // boolean indicating api response
-            data: null, // json values ex: count, recipes
+            data: [], // json values ex: count, recipes
             ingredientArray: 
             props.navigation.state.params.ingredientArrayCopy,
             // array format: [ {'ingredientValue' : 'ingredient1text'}, {'ingredientValue' : 'ingredient2text'}... ]
@@ -34,19 +34,19 @@ export default class RecipeMenue extends React.Component {
     }
     
     render() {
-        if (this.state.isLoading) {
-            return(
-                <View style = {styles.mainContainer}>
-                    <ActivityIndicator>
-                        <Text style = {styles.titleText}>
-                            Loading...
-                        </Text>
-                    </ActivityIndicator>
-                </View>
-            );
-        } 
+        // if (this.state.isLoading) {
+        //     return(
+        //         <View style = {styles.mainContainer}>
+        //             <ActivityIndicator>
+        //                 <Text style = {styles.titleText}>
+        //                     Loading...
+        //                 </Text>
+        //             </ActivityIndicator>
+        //         </View>
+        //     );
+        // } 
         
-        else {
+        // else {
 
             let recipes = this.state.data.map( (val, index)  => {
                 return <RecipeItem key={index} keyval={index} val={val}
@@ -70,7 +70,7 @@ export default class RecipeMenue extends React.Component {
                     </View>
                 </View>
             );
-        }
+        // }
     }
 
 
@@ -99,9 +99,10 @@ const styles = StyleSheet.create({
     },
 
     titleContainer: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 180,
+        height: 100,
     },
 
     titleText: {
@@ -112,9 +113,9 @@ const styles = StyleSheet.create({
     },
 
     recipesContainer: {
+        flex: 4,
         justifyContent: 'center',
         backgroundColor: '#FF6347',
-        borderRadius: 10,
         alignItems: 'center',
         height: '65%',
         alignSelf: 'stretch',

@@ -9,7 +9,7 @@ export default class Ingredient extends React.Component {
             key = {this.props.keyval}
             style = {styles.ingredient}>
 
-                <Text style = {styles.ingredientText}>{this.props.val.ingredient}</Text>
+                <Text style = {styles.ingredientText}>{this.props.val.ingredientValue}</Text>
 
                 <TouchableOpacity
                 onPress = {this.props.deleteMethod}

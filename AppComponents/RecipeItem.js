@@ -8,20 +8,14 @@ export default class RecipeItem extends React.Component {
             <View
             key = {this.props.keyval}
             style = {styles.item}>
-
                 <Text style = {styles.itemText}>
                     {this.props.recipeTitle}
                 </Text>
-
-                // Display a picture of the recipe - an image as a prop
-                 { /* this.props.recipeImage */ } // needs fixing to actually link to pic
-
                 <TouchableOpacity
                 onPress = {this.props.displayPrep}
                 style = {styles.navButton}>
                     <AntDesign name="rightcircle" size={10} color="white" />
                 </TouchableOpacity>
-
             </View>
         );
     }
@@ -31,32 +25,26 @@ const styles = StyleSheet.create({
     item: {
         flex: 1,
         alignSelf: 'stretch',
-        margin: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginBottom: 10,
+        marginTop: 10,
+        alignItems: 'stretch',
+        justifyContent: 'space-between',
+        backgroundColor: '#80DEEA',
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
-        // position: 'relative',
-        // padding: 10,
-        // paddingRight: 100,
-        // marginBottom: 5,
-        // marginTop: 5,
-        // backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
-        // borderRadius: 5,
-        // width: 267,
-        // height: 40,
     }, 
 
     itemText: {
+        flex: 1,
         paddingLeft: 15,
-        backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
         color: 'black',
         fontSize: 12,
         fontWeight: 'bold',
-        width: 190,
     },
 
-    itemImage: {}, // Figure out how to display an image in the item
+    itemImage: {
+        flex: 1,
+    }, // Figure out how to display an image in the item
 
     navButton: {
         width: 28,
