@@ -63,11 +63,11 @@ export default class RecipeMenu extends React.Component {
                         </Text>
                     </View>
 
-                    <View style = {styles.recipesContainer}>
-                        <ScrollView style = {styles.listScroller}>
+                    {/* <ScrollView style = {styles.listScroller}> */}
+                        <View style = {styles.recipesContainer}>
                             {recipes}
-                        </ScrollView>
-                    </View>
+                        </View>                            
+                    {/* </ScrollView> */}
                 </View>
             );
         // }
@@ -113,15 +113,17 @@ const styles = StyleSheet.create({
     },
 
     recipesContainer: {
-        flex: 4,
+        flexDirection: 'column',
+        flex: 5,
         justifyContent: 'center',
+        alignItems: 'stretch',
         backgroundColor: '#FF6347',
-        alignItems: 'center',
         height: '65%',
         alignSelf: 'stretch',
     },
 
     listScroller: { // View for scrolling through recipes
-        flex: 1,
+        flex: 5,
+        // backgroundColor: '#fff',
     },
 })

@@ -8,14 +8,24 @@ export default class RecipeItem extends React.Component {
             <View
             key = {this.props.keyval}
             style = {styles.item}>
-                <Text style = {styles.itemText}>
-                    {this.props.recipeTitle}
-                </Text>
-                <TouchableOpacity
-                onPress = {this.props.displayPrep}
-                style = {styles.navButton}>
-                    <AntDesign name="rightcircle" size={10} color="white" />
-                </TouchableOpacity>
+                <View style = {styles.itemTextBox}>
+                    <Text style = {styles.itemText}>
+                        {this.props.recipeTitle}
+                    </Text>
+                </View>
+                <View style = {styles.imageBox}>
+                    <Text>
+                        Placeholder.
+                    </Text>
+                </View>
+                <View style = {styles.navButtonBox}>
+                    <TouchableOpacity
+                    onPress = {this.props.displayPrep}
+                    style = {styles.navButton}>
+                        <AntDesign name="rightcircle" size={10} color="white" />
+                    </TouchableOpacity>
+                </View>
+
             </View>
         );
     }
@@ -23,40 +33,51 @@ export default class RecipeItem extends React.Component {
 
 const styles = StyleSheet.create({
     item: {
-        flex: 1,
-        alignSelf: 'stretch',
-        marginBottom: 10,
-        marginTop: 10,
-        alignItems: 'stretch',
-        justifyContent: 'space-between',
-        backgroundColor: '#80DEEA',
-        borderBottomWidth: 1,
-        borderBottomColor: '#eee',
+        flexDirection:'row',
+        flex:1,
+        alignItems:'center',
+        backgroundColor:'#80DEEA',
+        borderBottomWidth:1,
+        borderBottomColor:'#eee',
     }, 
 
+    itemTextBox:{
+        flex:2,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'flex-start',
+        paddingLeft:15,
+    },
+
     itemText: {
-        flex: 1,
-        paddingLeft: 15,
         color: 'black',
         fontSize: 12,
         fontWeight: 'bold',
     },
 
+    imageBox: {
+        flex:2,
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+
     itemImage: {
-        flex: 1,
     }, // Figure out how to display an image in the item
 
+    navButtonBox: {
+        flex:1,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'flex-end',
+        paddingRight: 10,
+    },
     navButton: {
-        width: 28,
-        height: 28,
-        position: 'absolute',
+        width: 36,
+        height: 36,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#424242',
-        padding: 10.3,
-        top: 3,
-        right: 15,
-        borderRadius: 28,
+        borderRadius: 20,
     },
-
 })
