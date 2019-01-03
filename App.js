@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
 import MainMenu from './AppScreens/MainMenu';
-import RecipeMenu from './AppScreens/RecipeMenu';
 
 import { createAppContainer, createStackNavigator } from "react-navigation";
 
@@ -21,15 +20,6 @@ const SerachNavigator = createStackNavigator({
       header: null, // hides the header
     }),
   },
-
-  SearchResults: { 
-    screen: RecipeMenu,
-    navigationOptions: ({ navigation }) => ({
-      title: 'RecipeMenu',
-      headerStyle: styles.styleHeader,
-    }),
-  },
-
 });
 
 const AppContainer = createAppContainer(SerachNavigator);

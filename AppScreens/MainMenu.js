@@ -18,7 +18,7 @@ export default class MainMenu extends React.Component {
         let Ingredients = this.state.ingredientArray.map( (val,index) => {
             // These are props, key, keyval, val, deleteMethod
             return <Ingredient key={index} keyval={index} val={val}
-            deleteMethod = { () => this.deleteIngredient(key)} />
+            deleteMethod = { () => this.deleteIngredient(index)} />
         });
 
         return (
@@ -85,15 +85,14 @@ export default class MainMenu extends React.Component {
         }
     }
 
-    deleteIngredient(key) {
-        this.state.ingredientArray.splice(key, 1);
+    deleteIngredient(index) {
+        this.state.ingredientArray.splice(index, 1);
         this.setState({ ingredientArray: this.state.ingredientArray })
     }
 
     clearList(){
         if (this.state.ingredientArray.length > 0) {
-            this.state.ingredientArray = [];
-            this.setState({ ingredientArray: this.state.ingredientArray })
+            this.setState({ ingredientArray: [] })
         }
     }
 
