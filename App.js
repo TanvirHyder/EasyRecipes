@@ -22,7 +22,7 @@ const SerachNavigator = createStackNavigator({
     }),
   },
 
-  SearchResults: { 
+  RecipeMenu: { 
     screen: RecipeMenu,
     navigationOptions: ({ navigation }) => ({
       title: 'RecipeMenu',

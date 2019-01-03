@@ -18,7 +18,7 @@ export default class MainMenu extends React.Component {
         let Ingredients = this.state.ingredientArray.map( (val,index) => {
             // These are props, key, keyval, val, deleteMethod
             return <Ingredient key={index} keyval={index} val={val}
-            deleteMethod = { () => this.deleteIngredient(key)} />
+            deleteMethod = { () => this.deleteIngredient(index)} />
         });
 
         return (
@@ -78,28 +78,26 @@ export default class MainMenu extends React.Component {
     addIngredient() {
         if (this.state.ingredientText) {
             this.state.ingredientArray.push({
-                'ingredient' : this.state.ingredientText,
+                'ingredientValue' : this.state.ingredientText,
             });
             this.setState({ ingredientArray: this.state.ingredientArray });
             this.setState({ ingredientText: ''});
         }
     }
 
-    deleteIngredient(key) {
-        this.state.ingredientArray.splice(key, 1);
-        this.setState({ ingredientArray: this.state.ingredientArray })
+    deleteIngredient(index) {
+        this.setState({ ingredientArray: this.state.ingredientArray.splice(index, 1) })
     }
 
     clearList(){
         if (this.state.ingredientArray.length > 0) {
-            this.state.ingredientArray = [];
-            this.setState({ ingredientArray: this.state.ingredientArray })
+            this.setState({ ingredientArray: [] })
         }
     }
 
     goToSearch(){
         if (this.state.ingredientArray.length > 0) {
-            this.props.navigation.navigate('SearchResults', {
+            this.props.navigation.navigate('RecipeMenu', {
                 ingredientArrayCopy: this.state.ingredientArray,
             });
         }

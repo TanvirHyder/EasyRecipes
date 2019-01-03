@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import RecipeItem from '../AppComponents/RecipeItem';
 
 export default class RecipeMenue extends React.Component {
 
@@ -7,24 +8,24 @@ export default class RecipeMenue extends React.Component {
         super(props);
         this.state = {
             isLoading: true, // boolean indicating api response
-            data: null, // json values ex: count
+            data: null, // json values ex: count, recipes
             ingredientArray: 
             props.navigation.state.params.ingredientArrayCopy,
-            // array format: [ {'ingredient' : 'ingredient1text'}, {'ingredient' : 'ingredient2text'}... ]
-            // to read the ingredient strings: "this.state.ingredientArray[i].ingredient"
+            // array format: [ {'ingredientValue' : 'ingredient1text'}, {'ingredientValue' : 'ingredient2text'}... ]
+            // to read the ingredient strings: "this.state.ingredientArray[i].ingredientValue"
         }
     }
 
     componentDidMount() {
         const API_KEY = 'beaedea3794702b125fd6a66aa1b20ab';
+        // Sort by rating
         const BASIC_SEARCH_ENDPOINT = `https://www.food2fork.com/api/search?key=${API_KEY}&q=`;
-        return fetch(`${BASIC_SEARCH_ENDPOINT}${this.getIngredientParams()}`)
+        return fetch(`${BASIC_SEARCH_ENDPOINT}${this.getIngredientParams()}&sort=r`)
             .then( (response) => response.json() )
             .then( (responseJson) => {
                 this.setState({
                     isLoading: false,
-                    data: responseJson.recipes, // Array of recipes
-                    // set Data to the response.Json.recipes & index thru top 5 to list (sort by poularity in API)
+                    data: responseJson.recipes.splice(0, 5), // Array of recipes
                 })
             })
             .catch( (error) => {
@@ -47,8 +48,11 @@ export default class RecipeMenue extends React.Component {
         
         else {
 
-            let recipes = this.state.data.map( (val, key)  => {
-                return <Text key={key}>{val.title}</Text>
+            let recipes = this.state.data.map( (val, index)  => {
+                return <RecipeItem key={index} keyval={index} val={val}
+                recipeTitle = {this.state.data[index].title}
+                recipeImage = {this.state.data[index].image_url} // Need to link...
+                displayPrep = { () => this.goToPrep(index)} />
             });
 
             return (
@@ -76,9 +80,13 @@ export default class RecipeMenue extends React.Component {
     getIngredientParams() {
         let ingredients = '';
         for (let i = 0; i < this.state.ingredientArray.length; i++) {
-            ingredients = ingredients + this.state.ingredientArray[i].ingredientArray + ',';
+            ingredients = ingredients + this.state.ingredientArray[i].ingredientValue + ',';
         }
         return ingredients.substring(0, (ingredients.length - 1));
+    }
+
+    goToPrep(index) {
+        // Navigate to the next screen
     }
 }
 
@@ -86,7 +94,7 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#F4F4F0',
-        justifyContent: 'cetner',
+        justifyContent: 'center',
         flexDirection: 'column',
     },
 
@@ -104,13 +112,12 @@ const styles = StyleSheet.create({
     },
 
     recipesContainer: {
-        width: 300,
         justifyContent: 'center',
         backgroundColor: '#FF6347',
         borderRadius: 10,
         alignItems: 'center',
         height: '65%',
-        alignSelf: 'center',
+        alignSelf: 'stretch',
     },
 
     listScroller: { // View for scrolling through recipes
