@@ -15,8 +15,9 @@ export default class MainMenu extends React.Component {
 
     render() {
 
-        let Ingredients = this.state.ingredientArray.map( (val,key) => {
-            return <Ingredient key={key} keyval={key} val={val}
+        let Ingredients = this.state.ingredientArray.map( (val,index) => {
+            // These are props, key, keyval, val, deleteMethod
+            return <Ingredient key={index} keyval={index} val={val}
             deleteMethod = { () => this.deleteIngredient(key)} />
         });
 

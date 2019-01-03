@@ -34,7 +34,7 @@ const SerachNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(SerachNavigator);
 
-const styles = StyleSheet.cresate({
+const styles = StyleSheet.create({
   styleHeader: {
     backgroundColor: '#E0E0E0',
   }

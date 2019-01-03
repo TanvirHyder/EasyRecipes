@@ -29,8 +29,6 @@ const styles = StyleSheet.create({
         paddingRight: 100,
         marginBottom: 5,
         marginTop: 5,
-        // borderBottomWidth: 5,
-        // borderBottomColor: '#E0E0E0', //E0E0E0
         backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
         borderRadius: 5,
         width: 267,
