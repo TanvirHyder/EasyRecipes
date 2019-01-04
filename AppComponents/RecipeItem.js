@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 export default class RecipeItem extends React.Component {
 
     render() {
-        let imgSource = this.props.recipeImage;
+        const imgSource = this.props.recipeImage;
         return (
             <View
             key = {this.props.keyval}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
     itemImage: {
         width:120,
-        height:100,
+        height:92,
     },
 
     navButtonBox: {
