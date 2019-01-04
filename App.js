@@ -26,10 +26,10 @@ const SerachNavigator = createStackNavigator({
   RecipeMenu: { 
     screen: RecipeMenu,
     navigationOptions: ({ navigation }) => ({
-      header: null,
+      header: null
     }),
   },
-
+  
   RecipeDisplay: {
     screen: RecipeDisplay,
     navigationOptions: ({navigation}) => ({
