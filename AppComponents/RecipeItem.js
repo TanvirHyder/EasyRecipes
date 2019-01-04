@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default class RecipeItem extends React.Component {
+
     render() {
+        let imgSource = this.props.recipeImage;
         return (
             <View
             key = {this.props.keyval}
@@ -14,9 +16,10 @@ export default class RecipeItem extends React.Component {
                     </Text>
                 </View>
                 <View style = {styles.imageBox}>
-                    <Text>
-                        Placeholder.
-                    </Text>
+                    <Image 
+                        style = {styles.itemImage}
+                        source = {{uri: imgSource}}
+                    />
                 </View>
                 <View style = {styles.navButtonBox}>
                     <TouchableOpacity
@@ -62,16 +65,19 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
 
-    itemImage: {
-    }, // Figure out how to display an image in the item
+    itemImage: { // Figure out how to display an image in the item
+        width:120,
+        height:100,
+    },
 
     navButtonBox: {
         flex:1,
         flexDirection:'column',
         justifyContent:'center',
         alignItems:'flex-end',
-        paddingRight: 10,
+        paddingRight: 20,
     },
+
     navButton: {
         width: 36,
         height: 36,
