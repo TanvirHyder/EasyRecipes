@@ -1,38 +1,64 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, WebView } from 'react-native';
 
 export default class RecipeDisplay extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            // insert state variables here
+            isLoading: true,
         }
     }
 
-    render() {
-        return(
-            <View style = {styles.mainContainer}>
-                
-                <View style = {styles.titleContainer}>
-                    <Text style = {styles.recipeTitleText}>
-                        {/* Insert title of recipe selected here */}
-                        Place holder text
-                    </Text>
-                </View>
+    componentDidMount() {
+        this.setState({
+            isLoading: false,
+        })
+    }
 
-                <View style = {styles.instructionContainer}>
-                    <Text style = {styles.recipeInstructionText}>
-                        {/* Insert recipe instructions here */}
-                        Placeholder text.
-                    </Text>
+    render() {
+        if (this.state.isLoading) {
+            return(
+                <View style = {styles.mainContainer}>
+                    <ActivityIndicator/>
                 </View>
-            </View>
-        );
+            );
+        } else {
+            const webPage = this.props.navigation.state.params.webUrl;
+            return(
+                // <View style = {styles.mainContainer}>
+                    <WebView
+                    source = {{uri: webPage}}
+                    style = {styles.webPage}
+                    />
+                // </View>
+            );
+        }
+        // return(
+        //     <View style = {styles.mainContainer}>
+                
+        //         <View style = {styles.titleContainer}>
+        //             <Text style = {styles.recipeTitleText}>
+        //                 {/* Insert title of recipe selected here */}
+        //                 Place holder text
+        //             </Text>
+        //         </View>
+
+        //         <View style = {styles.instructionContainer}>
+        //             <Text style = {styles.recipeInstructionText}>
+        //                 {/* Insert recipe instructions here */}
+        //                 Placeholder text.
+        //             </Text>
+        //         </View>
+        //     </View>
+        // );
     }
 }
 
 const styles = StyleSheet.create({
+    webPage: {
+    },
+
     mainContainer: {
         flex: 1,
         backgroundColor: '#ffa',

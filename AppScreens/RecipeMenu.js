@@ -13,7 +13,6 @@ export default class RecipeMenu extends React.Component {
             props.navigation.state.params.ingredientArrayCopy,
             // array format: [ {'ingredientValue' : 'ingredient1text'}, {'ingredientValue' : 'ingredient2text'}... ]
             // to read the ingredient strings: "this.state.ingredientArray[i].ingredientValue"
-            
         }
     }
 
@@ -66,7 +65,6 @@ export default class RecipeMenu extends React.Component {
         }
     }
 
-
     /**
      * Returns ingredients comma delimited for Food2Fork API
      */
@@ -79,7 +77,9 @@ export default class RecipeMenu extends React.Component {
     }
 
     goToPrep(index) {
-        // Navigate to the next screen
+        this.props.navigation.navigate('RecipeDisplay', {
+            webUrl: this.state.data[index].source_url,
+        });
     }
 }
 

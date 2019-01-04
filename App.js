@@ -31,6 +31,13 @@ const SerachNavigator = createStackNavigator({
     }),
   },
 
+  RecipeDisplay: {
+    screen: RecipeDisplay,
+    navigationOptions: ({navigation}) => ({
+      header: null
+    }),
+  }
+
 });
 
 const AppContainer = createAppContainer(SerachNavigator);
