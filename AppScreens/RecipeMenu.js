@@ -13,6 +13,7 @@ export default class RecipeMenu extends React.Component {
             props.navigation.state.params.ingredientArrayCopy,
             // array format: [ {'ingredientValue' : 'ingredient1text'}, {'ingredientValue' : 'ingredient2text'}... ]
             // to read the ingredient strings: "this.state.ingredientArray[i].ingredientValue"
+            
         }
     }
 
@@ -34,20 +35,15 @@ export default class RecipeMenu extends React.Component {
     }
     
     render() {
-        // if (this.state.isLoading) {
-        //     return(
-        //         <View style = {styles.mainContainer}>
-        //             <ActivityIndicator>
-        //                 <Text style = {styles.titleText}>
-        //                     Loading...
-        //                 </Text>
-        //             </ActivityIndicator>
-        //         </View>
-        //     );
-        // } 
+        if (this.state.isLoading) {
+            return(
+                <View style = {styles.mainContainer}>
+                    <ActivityIndicator/>
+                </View>
+            );
+        } 
         
-        // else {
-
+        else {
             let recipes = this.state.data.map( (val, index)  => {
                 return <RecipeItem key={index} keyval={index} val={val}
                 recipeTitle = {this.state.data[index].title}
@@ -70,7 +66,7 @@ export default class RecipeMenu extends React.Component {
                     {/* </ScrollView> */}
                 </View>
             );
-        // }
+        }
     }
 
 
