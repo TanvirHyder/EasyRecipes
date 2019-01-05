@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
     ingredientText: {
         paddingLeft: 15,
-        backgroundColor: '#FFBBDD', //light blue 80DEEA, light pink FFBBDD
+        backgroundColor: '#FFBBDD',
         color: 'black',
         fontSize: 12,
         fontWeight: 'bold',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, WebView } from 'react-native';
+import { ActivityIndicator, StyleSheet, View, WebView } from 'react-native';
 
 export default class RecipeDisplay extends React.Component {
 
@@ -26,32 +26,12 @@ export default class RecipeDisplay extends React.Component {
         } else {
             const webPage = this.props.navigation.state.params.webUrl;
             return(
-                // <View style = {styles.mainContainer}>
                     <WebView
                     source = {{uri: webPage}}
                     style = {styles.webPage}
                     />
-                // </View>
             );
         }
-        // return(
-        //     <View style = {styles.mainContainer}>
-                
-        //         <View style = {styles.titleContainer}>
-        //             <Text style = {styles.recipeTitleText}>
-        //                 {/* Insert title of recipe selected here */}
-        //                 Place holder text
-        //             </Text>
-        //         </View>
-
-        //         <View style = {styles.instructionContainer}>
-        //             <Text style = {styles.recipeInstructionText}>
-        //                 {/* Insert recipe instructions here */}
-        //                 Placeholder text.
-        //             </Text>
-        //         </View>
-        //     </View>
-        // );
     }
 }
 

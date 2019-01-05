@@ -46,7 +46,7 @@ export default class RecipeMenu extends React.Component {
             let recipes = this.state.data.map( (val, index)  => {
                 return <RecipeItem key={index} keyval={index} val={val}
                 recipeTitle = {this.state.data[index].title}
-                recipeImage = {this.state.data[index].image_url} // Need to link...
+                recipeImage = {this.state.data[index].image_url}
                 displayPrep = { () => this.goToPrep(index)} />
             });
 

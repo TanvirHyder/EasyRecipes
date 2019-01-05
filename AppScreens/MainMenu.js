@@ -16,7 +16,7 @@ export default class MainMenu extends React.Component {
     render() {
 
         let Ingredients = this.state.ingredientArray.map( (val,index) => {
-            // These are props, key, keyval, val, deleteMethod
+            // These are props: key, keyval, val, deleteMethod
             return <Ingredient key={index} keyval={index} val={val}
             deleteMethod = { () => this.deleteIngredient(index)} />
         });
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4F4F0', // #fff
     },
 
-    titleContainer: { // View for app title
+    titleContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         height: 180,
@@ -128,11 +128,11 @@ const styles = StyleSheet.create({
         padding: 26,
     },
 
-    listContainer: { // view for scroll view of ingredients
+    listContainer: {
         flex: 1,
     },
 
-    inputContainer: { // view for textinput container
+    inputContainer: {
         position: 'relative',
         zIndex: 10,
         height: 60,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
 
-    ingredientInput: { // for textinput
+    ingredientInput: {
         alignSelf: 'stretch',
         color: '#F4F4F0',
         padding: 20,
