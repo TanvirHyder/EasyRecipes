@@ -77,6 +77,7 @@ export default class MainMenu extends React.Component {
 
     addIngredient() {
         if (this.state.ingredientText) {
+            // Push to the ingredient Array, and then update the state
             this.state.ingredientArray.push({
                 'ingredientValue' : this.state.ingredientText,
             });
