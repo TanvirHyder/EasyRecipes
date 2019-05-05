@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, ToastAndroid } from 'react-native';
 import RecipeItem from '../AppComponents/RecipeItem';
 
 export default class RecipeMenu extends React.Component {
@@ -9,8 +9,7 @@ export default class RecipeMenu extends React.Component {
         this.state = {
             isLoading: true, // boolean indicating api response
             data: [], // json values ex: count, recipes
-            ingredientArray: 
-            props.navigation.state.params.ingredientArrayCopy,
+            ingredientArray: props.navigation.state.params.ingredientArrayCopy,
             // array format: [ {'ingredientValue' : 'ingredient1text'}, {'ingredientValue' : 'ingredient2text'}... ]
             // to read the ingredient strings: "this.state.ingredientArray[i].ingredientValue"
         }
@@ -25,7 +24,7 @@ export default class RecipeMenu extends React.Component {
             .then( (responseJson) => {
                 this.setState({
                     isLoading: false,
-                    data: responseJson.recipes.splice(0, 5), // Array of recipes
+                    data: responseJson.recipes.splice(0, 5), // Array of recipes limited to 5
                 })
             })
             .catch( (error) => {
@@ -43,6 +42,14 @@ export default class RecipeMenu extends React.Component {
         } 
         
         else {
+            if (!Array.isArray(this.state.data)) {
+                ToastAndroid.show('Not Array Error!', ToastAndroid.SHORT);
+                this.props.navigation.goBack();
+            } else if (this.state.data.length == 0) {
+                ToastAndroid.show('No recipes found!', ToastAndroid.SHORT);
+                this.props.navigation.goBack();
+            }
+
             let recipes = this.state.data.map( (val, index)  => {
                 return <RecipeItem key={index} keyval={index} val={val}
                 recipeTitle = {this.state.data[index].title}
@@ -81,6 +88,10 @@ export default class RecipeMenu extends React.Component {
             webUrl: this.state.data[index].source_url,
         });
     }
+
+    // returnHome() {
+    //     this.props.navigation.navigate('MainMenu');
+    // }
 }
 
 const styles = StyleSheet.create({
