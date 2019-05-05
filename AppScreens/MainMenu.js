@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import { AntDesign, EvilIcons, Entypo } from '@expo/vector-icons';
 import Ingredient from '../AppComponents/Ingredient';
 
@@ -77,12 +77,27 @@ export default class MainMenu extends React.Component {
 
     addIngredient() {
         if (this.state.ingredientText) {
-            // Push to the ingredient Array, and then update the state
-            this.state.ingredientArray.push({
-                'ingredientValue' : this.state.ingredientText,
-            });
-            this.setState({ ingredientArray: this.state.ingredientArray });
-            this.setState({ ingredientText: ''});
+            // Iterate through the array to get objects
+            var i;
+            var inArrayFlag = false;
+            for (i = 0; i < this.state.ingredientArray.length; i++) {
+                if (this.state.ingredientArray[i]['ingredientValue'] == this.state.ingredientText) {
+                    inArrayFlag = true;
+                }
+            }
+
+            if (inArrayFlag) {
+                ToastAndroid.show('You\'ve already entered this ingredient!', ToastAndroid.SHORT);
+                this.setState({ ingredientText: ''});
+            } else {
+                // Push to the ingredient Array, and then update the state
+                this.state.ingredientArray.push({
+                    'ingredientValue' : this.state.ingredientText,
+                });
+                this.setState({ ingredientArray: this.state.ingredientArray });
+                this.setState({ ingredientText: ''});
+            }
+
         }
     }
 
