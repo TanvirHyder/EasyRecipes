@@ -7,3 +7,17 @@ Recipes are sorted & taken by the top ratings of social media scores.
 # Credits:
 + Food2Fork API: https://www.food2fork.com/about/api
 + Favicon taken from: https://www.flaticon.com/free-icon/recipes_242428
+
+# Downloading as a standalone app
+https://docs.expo.io/versions/v31.0.0/distribution/building-standalone-apps/
+
+Build Standalone app, adb build:android.
+
+Wait for the build, go to build page & download apk.
+
+Then adb install EasyRecipes.apk
+
+
+--- Configure Android Studio Settings (...)
+
+Configure Android Framework
